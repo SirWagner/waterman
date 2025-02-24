@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WaterManagement.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="~/dist/js/pages/dashboard2.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+<h1>Users</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Waters">Create New</a>
+</p>
+<table id="myTable" class="table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Celular)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Meter)</th>
+            <th>@Html.DisplayNameFor(model => model.State)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Celular)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                <td>@Html.DisplayFor(modelItem => item.Meter)</td>
+                <td>@Html.DisplayFor(modelItem => item.State)</td>
+                <td>
+                    <a class="btn btn-app" asp-action="EditU" asp-route-id="@item.Id">
+                        <i class="fa fa-text-height"></i>Editar
+                    </a>
+                    <a class="btn btn-app" asp-action="Water" asp-controller="Users" asp-route-Meter="@item.Meter">
+                        <i class="fas fa-bars"></i> Ver Fatura
+                    </a>
+
+                    <form asp-action="DeleteItemU" asp-route-id="@item.Id" method="post" onsubmit="return confirmDelete(event)">
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i> Delete
+                        </button>
+                    </form>
+
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    function confirmDelete(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+
+        Swal.fire({
+            title: 'Tem Certeza?',
+            text: "Não vai poder recuperar esta informação",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sim, apagar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If the user confirms, submit the form
+                event.target.submit();
+            }
+        });
+    }
+</script>
+
+

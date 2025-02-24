@@ -1,0 +1,153 @@
+﻿@model WaterManagement.Models.Clients
+
+@{
+    ViewData["Title"] = "Factura";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="~/dist/css/adminlte.css">
+
+<section class="content"><div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                
+                <!-- Main content -->
+                <div id="invoice-content" class="invoice p-3 mb-3">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>
+                                <i class="fas fa-globe"></i> AdminLTE, Inc.
+                                <small class="float-right">Data: @Html.DisplayFor(model => model.Created) </small>
+                            </h4>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            From
+                            <address>
+                                <strong>Águas Jossai, Ltd.</strong><br>
+                                Bairro Kumbeza<br>
+                                Maputo, Moz<br>
+                                Tel: (82) 463-1120 / (84) 928 7506<br>
+                                NUIT: 100951126
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            To
+                            <address>
+                                <strong>@Html.DisplayFor(model => model.Name)</strong><br>
+                                Endereço: @Html.DisplayFor(model => model.Address)<br>
+                                Zona: @Html.DisplayFor(model => model.State)<br>
+                                Phone: @Html.DisplayFor(model => model.Celular)<br>
+                                Email: @Html.DisplayFor(model => model.Email)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <b>Invoice @Html.DisplayFor(model => model.Bill)</b><br>
+                            <br>
+                            <b>Nº do Contador:</b> @Html.DisplayFor(model => model.Meter)<br>
+                            <b>Pagar até:</b> @Html.DisplayFor(model => model.PayDate)<br>
+                            <b>Account:</b> 968-34567
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+
+                    <div class="col-6">
+                        <p class="lead">Data Limite de Pagamento @Html.DisplayFor(model => model.PayDate)</p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>Consumo Mensal:</th>
+                                    <td>@Html.DisplayFor(model => model.M3)</td>
+                                </tr>
+                                <tr>
+                                    <th style="width:50%">Subtotal:</th>
+                                    <td> @Html.DisplayFor(model => model.Valor)</td>
+                                </tr>
+                                <tr>
+                                    <th>Multa de atraso (25%)</th>
+                                    <td> @Html.DisplayFor(model => model.Multa)</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Total:</th>
+                                    <td> @Html.DisplayFor(model => model.Debt)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-default" onclick="printInvoice()">
+                                <i class="fas fa-print"></i> Imprimir Fatura
+                            </button>
+
+                        <a asp-action="Upsert" asp-route-id="@Model.Id" class="btn btn-success float-right">
+                            <i class="far fa-credit-card"></i> Fazer Pagamento
+                        </a>
+                        <button id="download-pdf" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                <i class="fas fa-download"></i> Baixar em PDF
+                            </button>
+                        </div>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function printInvoice() {
+            window.print();
+        }
+
+
+        document.getElementById("download-pdf").addEventListener("click", function () {
+            // Select the content to print
+            const invoiceContent = document.getElementById("invoice-content");
+
+            // Configure the options for html2pdf
+            const options = {
+                margin: 1,
+                filename: 'Invoice.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Generate the PDF
+            html2pdf().set(options).from(invoiceContent).save();
+        });
+    </script>
+
+
+</section>
+
+
+
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/dist/js/demo.js"></script>

@@ -1,0 +1,59 @@
+﻿@model WaterManagement.Models.Search
+@{
+    ViewData["Title"] = "Pagina Inicial";
+
+
+
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2>Pesquisar Faturas</h2>
+        <form class="form-control" asp-action="Search">
+
+            
+          
+
+            
+            <div class="form-outline mb-4 ">
+                <label class="form-label" for="Meter">Contador</label>
+                <input asp-for="Meter" type="text" class="form-control" />
+                <span asp-validation-for="Meter" class="text-danger"></span>
+            </div>
+
+            
+
+            <span asp-validation-for="DataInicio" class="text-danger"></span>
+            <div class="form-outline mb-4 ">
+                <label class="form-label" for="DataInicio"> Data Inicial</label>
+                <input asp-for="DataInicio" type="date" class="form-control" />
+                <label style="opacity:0.8" class="form-label" for="DataInicio"></label>
+            </div>
+
+            <span asp-validation-for="DataFim" class="text-danger"></span>
+            <div class="form-outline mb-4 ">
+                <label class="form-label" for="DataFim">Data Final</label>
+                <input asp-for="DataFim" type="date" class="form-control" />
+                <label style="opacity:0.8" class="form-label" for="DataFim"></label>
+            </div>
+
+
+            @*<div class="form-outline mb-4 ">
+            <label class="visually-hidden" for="Rede">Rede</label>
+            <select asp-for="Rede" class="select">
+                <option style="opacity:0.8" value="">Selecione</option>
+                <option value="Mass Market">Mass Market</option>
+                <option value="Prestige">Prestige</option>
+                <option value="Empresas">Empresa</option>
+
+            </select>
+        </div>*@
+
+
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Pesquisar</button>
+        </form>
+    </div>
+</div>

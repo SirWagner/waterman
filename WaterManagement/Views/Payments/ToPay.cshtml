@@ -1,0 +1,179 @@
+﻿@model WaterManagement.Models.Clients
+
+<br />
+<h2 class="text-info"> Registar Pagamento</h2>
+<br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<script src="Https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Progress Bar -->
+
+
+<!-- Overlay Background with Shadow -->
+<div class="row justify-content-center" style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 15px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);">
+    <!-- Start of Form -->
+    <form asp-action="ToPay" method="post" class="col-md-8">
+        <div class="row">
+            <!-- First Column: Confirmation Details -->
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Dados do Usuário</h3>
+
+                <!-- Validation Summary -->
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <input type="hidden" asp-for="PayDate" />
+                <input type="hidden" asp-for="Multa" />
+
+
+                <!-- Disabled Contador Field -->
+                <div class="form-group">
+                    <label>Nome</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-hand-holding-water"></i></span>
+                        </div>
+                        <input type="text" value="@Model.Name" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <!-- Disabled Contador Field -->
+                <div class="form-group">
+                    <label>Confirmar Contador</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-hand-holding-water"></i></span>
+                        </div>
+                        <input type="text" value="@Model.Meter" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <!-- Receipt Number Field -->
+                <div class="form-group">
+                    <label>Multa</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input value="@(Model.Multa.HasValue ? Model.Multa.Value.ToString("F2") : "0.00")" readonly="readonly" type="text" class="form-control">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Payment Amount Field (Readonly) -->
+                <div class="form-group">
+                    <label>Valor a Pagar</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input asp-for="Valor" value="@(Model.Debt.HasValue ? Model.Debt.Value.ToString("F2") : "0.00")" readonly="readonly" type="text" class="form-control">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Payment Amount Paid Field -->
+
+            </div>
+
+            <!-- Second Column: Additional Details -->
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Detalhes do Pagamento</h3>
+
+
+
+                <!-- Payment Date Field -->
+                <div class="form-group">
+                    <label>Nº do Recibo</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-file-invoice"></i></span>
+                        </div>
+                        <input type="text" value="@Model.Recibo" class="form-control" readonly>
+                    </div>
+                    <input type="hidden" asp-for="Recibo" />
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="ReDate" class="control-label">Data do Registo</label>
+                    <input asp-for="ReDate" class="form-control" required />
+                    <span asp-validation-for="ReDate" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Método de Pagamento</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                        </div>
+                        <select asp-for="Banco" class="form-control" required>
+                            <option value="">Selecione o método de pagamento</option>
+                            <option value="Banco BIM">Banco BIM</option>
+                            <option value="Banco BCI">Banco BCI</option>
+                            <option value="Mpesa">Mpesa</option>
+                            <option value="Emola">Emola</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="Banco" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Valor Pago</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input asp-for="Payed" type="text" class="form-control" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Start Date Field -->
+                <div class="form-group row">
+                    <div class="col-8">
+                        @{
+                            var dateSta = ""; if (Model.Id != 0) { dateSta = Model.Stablished.ToShortDateString(); }
+                        }
+                        <input id="datapicker" value="@DateTime.Now" type="hidden" readonly="readonly" asp-for="@Model.Stablished" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit and Back Buttons -->
+        <div class="form-group row justify-content-center mt-4">
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary w-100" asp-route-meter="@Model.Id">
+                    @(Model.Id != 0 ? "Confirmar" : "Confirmar")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="index" class="btn btn-danger w-100">Voltar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+
+}

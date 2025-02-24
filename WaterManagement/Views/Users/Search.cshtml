@@ -1,0 +1,37 @@
+﻿@model WaterManagement.Models.SelUsers
+@{
+    ViewData["Title"] = "Pagina Inicial";
+
+
+
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2>Pesquisar Faturas</h2>
+        <form class="form-control" asp-action="Search">
+
+            <span asp-validation-for="Nome" class="text-danger"></span>
+            <div class="form-outline mb-4 ">
+                <label class="form-label" for="Nome">Nome</label>
+                <input asp-for="Nome" type="text" class="form-control" />
+
+            </div>
+
+            <span asp-validation-for="Meter" class="text-danger"></span>
+            <div class="form-outline mb-4 ">
+                <label class="form-label" for="Meter">Contador</label>
+                <input asp-for="Meter" type="text" class="form-control" />
+
+            </div>
+
+           
+
+
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Pesquisar</button>
+        </form>
+    </div>
+</div>

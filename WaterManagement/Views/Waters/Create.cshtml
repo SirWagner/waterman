@@ -1,0 +1,228 @@
+﻿@model WaterManagement.Models.Clients
+
+@{
+    ViewData["Title"] = "Criar Fatura";
+}
+
+<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<link href="~/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<script src="http://tristanedwards.me/u/SweetAlert//lib/sweet-alert.js"></script>
+<link rel="stylesheet" type="text/css" href="http://tristanedwards.me/u/SweetAlert//lib/sweet-alert.css">
+
+<style>
+    .form-container {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sutil efeito 3D */
+    }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+
+    .input-group-text {
+        background-color: #007bff;
+        color: white;
+    }
+</style>
+
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <h1>Criar Fatura</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/home/">Home</a></li>
+            <li class="breadcrumb-item active">Criar Fatura</li>
+        </ol>
+    </div>
+</div>
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="form-group">
+                    <label asp-for="State" class="control-label d-none">Nº do Contador</label>
+                    <input asp-for="State" type="hidden" class="form-control" />
+                </div>
+
+                <!-- Informações não editáveis -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Nome</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input asp-for="Name" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Meter" class="control-label">Nº do Contador</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-hand-holding-water"></i></span>
+                                </div>
+                                <input asp-for="Meter" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Meter" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                               
+                <!-- Campos adicionais não editáveis -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Celular" class="control-label">Celular</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                </div>
+                                <input asp-for="Celular" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Celular" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                </div>
+                                <input asp-for="Email" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campos adicionais não editáveis -->
+
+                <div class="row" style="display: none;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Multa" class="control-label">Multa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input asp-for="Multa" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Multa" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Debt" class="control-label">Valor a Pagar</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input asp-for="Debt" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Debt" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Campos de Fatura e Endereço  -->
+                <div class="row" >
+                    <!-- Campo de Fatura -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Bill" class="control-label">Nº da Fatura</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-file-invoice"></i></span>
+                                </div>
+                                <input asp-for="Bill" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Bill" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Campo de Endereço -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Address" class="control-label">Endereço</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                                </div>
+                                <input asp-for="Address" readonly="readonly" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Campos editáveis -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="M3" class="control-label">Leitura mês Anterior</label>
+                            <input asp-for="M3" class="form-control" />
+                            <span asp-validation-for="M3" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="M4" class="control-label">Leitura mês Atual</label>
+                            <input asp-for="M4" class="form-control" />
+                            <span asp-validation-for="M4" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Created" class="control-label">Data de Emissão</label>
+                            <input asp-for="Created" value="@DateTime.Now" class="form-control" />
+                            <span asp-validation-for="Created" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PayDate" class="control-label">Dia do Pagamento</label>
+                            <input id="datapicker" type="datetime" value="@Model.PayDate.ToString("dd MMMM yyyy")" readonly="readonly" class="form-control" />
+                            <span asp-validation-for="PayDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center">
+                    <button id="Alerta2" value="Criar" type="submit" class="btn btn-primary">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+   
+}

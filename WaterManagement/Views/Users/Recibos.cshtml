@@ -1,0 +1,120 @@
+﻿@model IEnumerable<WaterManagement.Models.Clients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>REcibos do Cliente @Model.ElementAt(0).Name</h1>
+
+
+<table id="myTable" class="table-striped">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Cidade
+            </th>
+            <th>
+                Endereço
+            </th>
+
+            <th>
+                Nº de Contador
+            </th>
+            <th>
+                Nº da Fatura
+
+             <th>
+                Data da Fatura
+            </th>
+            
+            <th>
+                Multa
+            </th>
+            <th>
+               Valor
+            </th>
+            <th>
+                Valor a Pagar
+            </th>
+            <th>
+                Valor Pago
+            </th>
+            <th>
+                Nº do Recibo
+            </th>
+             <th>
+                Banco
+            </th>
+            <th>
+                Data do pagamento
+            </th>
+
+ 
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+               <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+
+             <td>
+                    @(item.Multa.HasValue ? item.Multa.Value.ToString() : "-")
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Debt)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Payed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recibo)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ReDate)
+            </td>
+
+            
+            
+            <td>
+                 <a class="btn btn-app" asp-controller="Payments" asp-action="Recibo" asp-route-id="@item.Id">
+                  <i class="fas fa-print"></i> Imprimir
+                </a>
+                                               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

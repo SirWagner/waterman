@@ -1,0 +1,147 @@
+﻿@model WaterManagement.Models.Clients
+
+
+
+@{
+    ViewData["Title"] = "PrintInvoice";
+}
+
+<link href="~/print/adminlte.min.css" rel="stylesheet" type="text/css" />
+
+<link href="~/print/adminlte.min.css" rel="stylesheet" type="text/css" />
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="~/dist/css/adminlte.css">
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+<section id="load" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="callout callout-info">
+                    <h5><i class="fas fa-info"></i> Note:</h5>
+                    This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+                </div>
+
+
+                <!-- Main content -->
+                <div id="load" class="invoice p-3 mb-3">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>
+                                <i class="fas fa-globe"></i> AdminLTE, Inc.
+                                <small class="float-right">Date: 2/10/2014</small>
+                            </h4>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            From
+                            <address>
+                                <strong>Water, Ltd.</strong><br>
+                                Av. Ahmed Sekou Touré<br>
+                                Maputo, Moz<br>
+                                Phone: (82) 522-2876<br>
+                                Email: edsonwagner@live.com
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            To
+                            <address>
+                                <strong>@Html.DisplayFor(model => model.Name)</strong><br>
+                                Endereço: @Html.DisplayFor(model => model.Address)<br>
+                                Zona: @Html.DisplayFor(model => model.State)<br>
+                                Phone: @Html.DisplayFor(model => model.Celular)<br>
+                                Email: @Html.DisplayFor(model => model.Email)
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <b>Invoice @Html.DisplayFor(model => model.Bill)</b><br>
+                            <br>
+                            <b>Nº do Contador:</b> @Html.DisplayFor(model => model.Meter)<br>
+                            <b>Pagar até:</b> @Html.DisplayFor(model => model.PayDate)<br>
+                            <b>Account:</b> 968-34567
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+
+                    <div class="col-6">
+                        <p class="lead">Amount Due @DateTime.Now</p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>Consumo Mensal:</th>
+                                    <td>@Html.DisplayFor(model => model.M3)</td>
+                                </tr>
+                                <tr>
+                                    <th style="width:50%">Subtotal:</th>
+                                    <td> @Html.DisplayFor(model => model.Valor)</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax (9.3%)</th>
+                                    <td> @Html.DisplayFor(model => model.Multa)</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Total:</th>
+                                    <td> @Html.DisplayFor(model => model.Debt)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/dist/js/demo.js"></script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+        var barcodeCode128 = new ej.barcodegenerator.BarcodeGenerator({
+            type: 'Code128C',
+            value: $("#hfPurchaseOrderNumber").val(),
+            width: '300px', height: '100px',
+            mode: 'SVG',
+        });
+        barcodeCode128.appendTo('#barcode');
+    </script>
+    <script>window.addEventListener("load", window.print());</script>
+
+
+
+}
+
