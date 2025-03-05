@@ -60,7 +60,7 @@
                             <br>
                             <b>Nº do Contador:</b> @Html.DisplayFor(model => model.Meter)<br>
                             <b>Pagar até:</b> @Html.DisplayFor(model => model.PayDate)<br>
-                            <b>Account:</b> 968-34567
+                            <b>Conta para pagamento:</b> BIM: 75801912  || NIB BCI: 000800000056298910180  || E-Mola: 8700231120
                         </div>
                         <!-- /.col -->
                     </div>
@@ -71,23 +71,37 @@
                         <p class="lead">Data Limite de Pagamento @Html.DisplayFor(model => model.PayDate)</p>
 
                         <div class="table-responsive">
+                            <style>
+                                .subfield {
+                                    padding-left: 20px;
+                                }
+                            </style>
+
                             <table class="table">
                                 <tr>
                                     <th>Consumo Mensal:</th>
-                                    <td>@Html.DisplayFor(model => model.M3)</td>
+                                    <td>@ViewBag.ConsumoMensal<span>m³</span></td>
                                 </tr>
                                 <tr>
-                                    <th style="width:50%">Subtotal:</th>
-                                    <td> @Html.DisplayFor(model => model.Valor)</td>
+                                    <th rowspan="2" style="vertical-align: middle; ">Leituras:</th>
+                                    <th class="subfield">Leitura Inicial:</th>
+                                    <td>@Html.DisplayFor(model => model.M3)m³</td>
                                 </tr>
                                 <tr>
-                                    <th>Multa de atraso (25%)</th>
-                                    <td> @Html.DisplayFor(model => model.Multa)</td>
+                                    <th class="subfield">Leitura Final:</th>
+                                    <td>@Html.DisplayFor(model => model.M4)m³</td>
                                 </tr>
-
+                                <tr>
+                                    <th>Subtotal:</th>
+                                    <td>@Html.DisplayFor(model => model.Valor)</td>
+                                </tr>
+                                <tr>
+                                    <th>Multa de atraso (25%):</th>
+                                    <td>@Html.DisplayFor(model => model.Multa)</td>
+                                </tr>
                                 <tr>
                                     <th>Total:</th>
-                                    <td> @Html.DisplayFor(model => model.Debt)</td>
+                                    <td>@Html.DisplayFor(model => model.Debt)</td>
                                 </tr>
                             </table>
                         </div>

@@ -234,6 +234,8 @@ namespace Waters.Controllers
                 _db.SaveChanges();
             }
 
+            ViewBag.ConsumoMensal = Clients.M4 - Clients.M3;
+
             return View(Clients);
         }
 
@@ -369,7 +371,20 @@ namespace Waters.Controllers
                 {
                     if (!string.IsNullOrEmpty(Clients.Meter))
                     {
-                        Clients.Valor = (Clients.M4 - Clients.M3) * 70;
+                        
+                        var valor = (Clients.M4 - Clients.M3) * 70;
+                        if (valor <= 350)
+                        {
+                            Clients.Valor = 350;
+                        }
+                        else
+                        {
+
+                            Clients.Valor = valor;
+                        }
+
+                        
+
                         Clients.Debt = (Clients.Multa ?? 0) + Clients.Valor; 
 
                         var join = _db.User.Where(x => x.Meter == Clients.Meter).FirstOrDefault();
@@ -400,6 +415,8 @@ namespace Waters.Controllers
                 {
                     _db.Clients.Update(Clients);
                 }
+
+
 
                 _db.SaveChanges();
 

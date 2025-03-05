@@ -36,8 +36,13 @@ namespace WaterManagement.Controllers
 
         public IActionResult Recibos(string Meter)
         {
-
             var meter = _db.Clients.Where(x => x.Meter == Meter && x.Recibo != null).ToList();
+
+            if (!meter.Any())
+            {
+                TempData["ErrorMessage"] = "Nenhum recibo encontrado para o contador informado.";
+                return RedirectToAction("Index"); // Redirect to another action
+            }
 
             return View(meter);
         }
