@@ -9,151 +9,151 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WaterManagement
 build_property.RootNamespace = WaterManagement
-build_property.ProjectDir = C:\Data\Edson\Documents\Code\Software\WaterManagement\WaterManagement\
+build_property.ProjectDir = C:\Users\Wagner\source\repos\Waterman\waterman\WaterManagement\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Data\Edson\Documents\Code\Software\WaterManagement\WaterManagement
+build_property.MSBuildProjectDirectory = C:\Users\Wagner\source\repos\Waterman\waterman\WaterManagement
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Admins/Edit.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Admins/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Admins/EditU.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Admins/EditU.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEVkaXRVLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Admins/Facturas.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Admins/Facturas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEZhY3R1cmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Admins/Index.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Admins/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Admins/Users.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Admins/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Home/Index.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Home/Privacy.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Payments/Index.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Payments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Payments/Recibo.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Payments/Recibo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcUmVjaWJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Payments/ToPay.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Payments/ToPay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcVG9QYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Payments/Upsert.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Payments/Upsert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcVXBzZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Shared/Error.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Users/Index.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Users/Recibos.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Users/Recibos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVjaWJvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Users/Search.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Users/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Users/Upsert.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Users/Upsert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcVXBzZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Users/Water.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Users/Water.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcV2F0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/AdminIndex.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/AdminIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXEFkbWluSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Atrasado.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Atrasado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXEF0cmFzYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Create.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Details.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Edit.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Index.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Index2.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Index2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXEluZGV4Mi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Pay.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Pay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFBheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Pendente.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Pendente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFBlbmRlbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Pendentes.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Pendentes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFBlbmRlbnRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/PrintInvoice.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/PrintInvoice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFByaW50SW52b2ljZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Search.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Upsert.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Upsert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFVwc2VydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Waters/Upsert2.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Waters/Upsert2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2F0ZXJzXFVwc2VydDIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/_ViewImports.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/_ViewStart.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Data/Edson/Documents/Code/Software/WaterManagement/WaterManagement/Views/Shared/_Layout.cshtml]
+[C:/Users/Wagner/source/repos/Waterman/waterman/WaterManagement/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-umbvq0qcg4

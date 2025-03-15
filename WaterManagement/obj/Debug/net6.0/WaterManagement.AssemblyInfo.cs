@@ -12,10 +12,10 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("d6d57da0-99dd-4859-afc4-9e7562acf379")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("BCP")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eff575aeec5ae7b2d30c3d1ff620275d82b94813")]
 [assembly: System.Reflection.AssemblyProductAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

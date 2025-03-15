@@ -11914,19 +11914,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\X130959\\.nuget\\packages\\": {}
+    "C:\\Users\\Wagner\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Data\\Edson\\Documents\\Code\\Software\\WaterManagement\\WaterManagement\\WaterManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\WaterManagement.csproj",
       "projectName": "WaterManagement",
-      "projectPath": "C:\\Data\\Edson\\Documents\\Code\\Software\\WaterManagement\\WaterManagement\\WaterManagement.csproj",
-      "packagesPath": "C:\\Users\\X130959\\.nuget\\packages\\",
-      "outputPath": "C:\\Data\\Edson\\Documents\\Code\\Software\\WaterManagement\\WaterManagement\\obj\\",
+      "projectPath": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\WaterManagement.csproj",
+      "packagesPath": "C:\\Users\\Wagner\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\X130959\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wagner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12050,7 +12055,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -76,7 +76,7 @@ namespace WaterManagement.Controllers
                 int randomNumber = random.Next(1000, 9999);
 
                 // Set the nº de contador
-                string contador = $"J{randomNumber}{(lastUser?.Id + 1 ?? 1)}"; // If lastUser is null, start from 1
+                string contador = $"J00{(lastUser?.Id + 1 ?? 1)}"; // If lastUser is null, start from 1
 
                 User.Meter = contador;  // Set the contador in the new User object
 
