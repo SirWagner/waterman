@@ -209,6 +209,7 @@
           "System.Drawing": "4.0.0.0",
           "System.Drawing.Primitives": "6.0.0.0",
           "System.Dynamic.Runtime": "6.0.0.0",
+          "System.Formats.Asn1.Reference": "6.0.0.0",
           "System.Globalization.Calendars.Reference": "6.0.0.0",
           "System.Globalization.Reference": "6.0.0.0",
           "System.Globalization.Extensions.Reference": "6.0.0.0",
@@ -2706,9 +2707,6 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.3224.31407"
           }
-        },
-        "compile": {
-          "lib/net6.0/System.Formats.Asn1.dll": {}
         }
       },
       "System.Globalization/4.3.0": {
@@ -4404,6 +4402,12 @@
       "System.Dynamic.Runtime/6.0.0.0": {
         "compile": {
           "System.Dynamic.Runtime.dll": {}
+        },
+        "compileOnly": true
+      },
+      "System.Formats.Asn1.Reference/6.0.0.0": {
+        "compile": {
+          "System.Formats.Asn1.dll": {}
         },
         "compileOnly": true
       },
@@ -7617,6 +7621,11 @@
       "sha512": ""
     },
     "System.Dynamic.Runtime/6.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Formats.Asn1.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

@@ -11914,23 +11914,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Wagner\\.nuget\\packages\\": {},
+    "C:\\Users\\sirwa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\WaterManagement.csproj",
+      "projectUniqueName": "C:\\Users\\sirwa\\source\\repos\\waterman\\WaterManagement\\WaterManagement.csproj",
       "projectName": "WaterManagement",
-      "projectPath": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\WaterManagement.csproj",
-      "packagesPath": "C:\\Users\\Wagner\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wagner\\source\\repos\\Waterman\\waterman\\WaterManagement\\obj\\",
+      "projectPath": "C:\\Users\\sirwa\\source\\repos\\waterman\\WaterManagement\\WaterManagement.csproj",
+      "packagesPath": "C:\\Users\\sirwa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sirwa\\source\\repos\\waterman\\WaterManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Wagner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sirwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11957,7 +11957,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net6.0": {
@@ -12055,7 +12056,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   },

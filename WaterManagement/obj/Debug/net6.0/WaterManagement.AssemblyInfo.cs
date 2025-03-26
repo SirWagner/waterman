@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eff575aeec5ae7b2d30c3d1ff620275d82b94813")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b88ce6cdb7afe03ae0696c227e0ff5dff0581715")]
 [assembly: System.Reflection.AssemblyProductAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WaterManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

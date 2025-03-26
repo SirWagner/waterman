@@ -92,4 +92,11 @@
     <Folder Include="wwwroot\docs\dossie_balcao_digital\comunicacoes_covid19\higienizacao_impar\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Waters\CreateU.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

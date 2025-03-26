@@ -93,11 +93,41 @@ namespace Waters.Controllers
             int randomNumber = random.Next(1000, 9999); // Generates a random 4-digit number
             Clients.Bill = $"FJ{randomNumber}{newId}";
 
-            DateTime today = DateTime.Now;
+            DateTime today = Clients.Created;
             DateTime nextMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
             DateTime payDate = new DateTime(nextMonth.Year, nextMonth.Month, 10);
 
             Clients.PayDate = payDate;
+
+
+
+            //create
+            return View(Clients);
+        }
+
+        public IActionResult CreateU(string? Meter, int? id)
+        {
+            Clients = new Clients();
+            //if (id == null)
+            // {
+
+            Clients.Meter = Meter;//id eh codideia
+            var join = _db.User.Where(x => x.Meter == Clients.Meter).FirstOrDefault();
+
+            Clients.Name = join.Nome;
+            Clients.State = join.State;
+            Clients.Meter = join.Meter;
+            Clients.Celular = join.Celular;
+            Clients.Email = join.Email;
+            Clients.Address = join.Address;
+
+            int lastId = _db.Clients.OrderByDescending(c => c.Id).Select(c => c.Id).FirstOrDefault(); // Get the last created ID
+            int newId = lastId + 1; // Increment to get the next ID
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 9999); // Generates a random 4-digit number
+            Clients.Bill = $"Outros Custos{newId}";
+
+            Clients.PayDate = DateTime.Now;
 
 
 
@@ -205,39 +235,57 @@ namespace Waters.Controllers
 
         public IActionResult Details(int? id)
         {
-            Clients = new Clients();
-
             if (id == null)
-            {
-                // Create new client
-                return View(Clients);
-            }
-
-            // Retrieve existing client for update
-            Clients = _db.Clients.FirstOrDefault(u => u.Id == id);
-            if (Clients == null)
             {
                 return NotFound();
             }
 
-            // Check if PayDate is due and Payed is null
-            if (Clients.PayDate < DateTime.Now && Clients.Payed == null)
+            // Get the meter value associated with the given id
+            var meterValue = _db.Clients
+                .Where(c => c.Id == id)
+                .Select(c => c.Meter)
+                .FirstOrDefault();
+
+            // Initialize model
+            var model = new Atrasadas
             {
-                // Calculate Multa (25% of Valor)
-                Clients.Multa = Clients.Valor * 0.25m;
+                Clients = new Clients(),
+                ClientsList = _db.Clients
+                    .Where(x => x.Meter == meterValue && x.Recibo == null)
+                    .ToList()
+            };
 
-                // Calculate total Debt (Valor + Multa)
-                Clients.Debt = Clients.Valor + Clients.Multa;
+            // Fetch client details
+            model.Clients = _db.Clients.FirstOrDefault(u => u.Id == id);
+            if (model.Clients == null)
+            {
+                return NotFound();
+            }
 
-                // Save changes to the database
-                _db.Clients.Update(Clients);
+            // Check if PayDate is overdue and not yet paid
+            if (model.Clients.PayDate < DateTime.Now && model.Clients.Payed == null)
+            {
+                model.Clients.Multa = model.Clients.Valor * 0.25m;
+                model.Clients.Debt = model.Clients.Valor + model.Clients.Multa;
+                _db.Clients.Update(model.Clients);
                 _db.SaveChanges();
             }
 
-            ViewBag.ConsumoMensal = Clients.M4 - Clients.M3;
+            // Calculate monthly consumption
+            ViewBag.ConsumoMensal = model.Clients.M4 - model.Clients.M3;
 
-            return View(Clients);
+            var billsStartingWithO = model.ClientsList?.Where(o => o.Bill != null && o.Bill.StartsWith("O"));
+
+            if (billsStartingWithO != null && billsStartingWithO.Any())
+            {
+                ViewBag.OuC = billsStartingWithO.Sum(o => o.Debt);
+            }
+            // Calculate GrandTotal safely (handling null Debt values)
+            ViewBag.GrandTotal = model.ClientsList?.Sum(c => c.Debt ?? 0) ?? 0;
+
+            return View(model);
         }
+
 
 
 
@@ -401,7 +449,7 @@ namespace Waters.Controllers
                         int randomNumber = random.Next(1000, 9999); // Generates a random 4-digit number
                         Clients.Bill = $"FJ{randomNumber}{Clients.Id}";
 
-                        DateTime today = DateTime.Now;
+                        DateTime today = Clients.Created;
                         DateTime nextMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
                         DateTime payDate = new DateTime(nextMonth.Year, nextMonth.Month, 10);
 
@@ -428,6 +476,57 @@ namespace Waters.Controllers
             return View(Clients); // Retorna a mesma view se ModelState não for válido
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateU(Clients clients, string? meter)
+        {
+            if (ModelState.IsValid)
+            {
+                // Verificar se o campo Data de Emissão está preenchido corretamente
+                if (clients.Created == default)
+                {
+                    ModelState.AddModelError("Created", "A Data de Emissão é obrigatória.");
+                    return View(clients);
+                }
+
+                if (clients.Id == 0) // Se for um novo cliente
+                {
+                    if (!string.IsNullOrEmpty(clients.Meter))
+                    {
+                       
+
+                        var join = _db.User.FirstOrDefault(x => x.Meter == clients.Meter);
+
+                        if (join != null)
+                        {
+                            clients.Name = join.Nome;
+                            clients.Meter = join.Meter;
+                            clients.Celular = join.Celular;
+                            clients.Email = join.Email;
+                        }
+
+                       clients.Debt = clients.Valor;
+                        clients.PayDate = clients.Created;
+                        
+                    }
+
+                    // Adicionar o cliente
+                    _db.Clients.Add(clients);
+                }
+                else
+                {
+                    _db.Clients.Update(clients);
+                }
+
+                _db.SaveChanges();
+
+                TempData["SuccessMessage"] = "Fatura adicionada com sucesso!";
+
+                return RedirectToAction("Water", "users", new { meter = meter }); // Redireciona após salvar
+            }
+
+            return View(clients); // Retorna a mesma view se ModelState não for válido
+        }
 
 
         [HttpPost]

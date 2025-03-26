@@ -10,6 +10,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Rotativa.AspNetCore;
 using System.Data.Entity;
+using System.ComponentModel;
+
 
 namespace Admins.Controllers
 {
@@ -61,6 +63,32 @@ namespace Admins.Controllers
 
             return View(meter);
         }
+
+        //[HttpPost]
+        //public IActionResult DownloadExcel()
+        //{
+        //    // Set EPPlus license context for non-commercial use
+        //    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+        //    using (var package = new ExcelPackage())
+        //    {
+        //        var worksheet = package.Workbook.Worksheets.Add("Clients");
+
+        //        // Load data from Clients list to worksheet
+        //        var clients = _db.Clients.ToList();
+        //        worksheet.Cells["A1"].LoadFromCollection(clients, true, TableStyles.Medium9);
+
+        //        // Auto-fit columns for better appearance
+        //        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+        //        // Prepare the Excel file for download
+        //        var content = package.GetAsByteArray();
+        //        var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        //        var fileName = "ClientsData.xlsx";
+
+        //        return File(content, contentType, fileName);
+        //    }
+        //}
 
 
 
@@ -302,7 +330,7 @@ namespace Admins.Controllers
                         int randomNumber = random.Next(1000, 9999); // Generates a random 4-digit number
                         Clients.Bill = $"FJ{randomNumber}{Clients.Id}";
 
-                        DateTime today = DateTime.Now;
+                        DateTime today = Clients.Created;
                         DateTime nextMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
                         DateTime payDate = new DateTime(nextMonth.Year, nextMonth.Month, 10);
 

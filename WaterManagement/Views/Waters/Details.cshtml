@@ -1,4 +1,4 @@
-﻿@model WaterManagement.Models.Clients
+﻿@model WaterManagement.Models.Atrasadas
 
 @{
     ViewData["Title"] = "Factura";
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <h4>
                                 <i class="fas fa-globe"></i> AdminLTE, Inc.
-                                <small class="float-right">Data: @Html.DisplayFor(model => model.Created) </small>
+                                <small class="float-right">Data: @Html.DisplayFor(model => model.Clients.Created) </small>
                             </h4>
                         </div>
                         <!-- /.col -->
@@ -39,7 +39,7 @@
                                 <strong>Águas Jossai, Ltd.</strong><br>
                                 Bairro Kumbeza<br>
                                 Maputo, Moz<br>
-                                Tel: (82) 463-1120 / (84) 928 7506<br>
+                                Tel: (82) 463-1120 / (87) 003-1120<br>
                                 NUIT: 100951126
                             </address>
                         </div>
@@ -47,20 +47,19 @@
                         <div class="col-sm-4 invoice-col">
                             To
                             <address>
-                                <strong>@Html.DisplayFor(model => model.Name)</strong><br>
-                                Endereço: @Html.DisplayFor(model => model.Address)<br>
-                                Zona: @Html.DisplayFor(model => model.State)<br>
-                                Phone: @Html.DisplayFor(model => model.Celular)<br>
-                                Email: @Html.DisplayFor(model => model.Email)
+                                <strong>@Html.DisplayFor(model => model.Clients.Name)</strong><br>
+                                Endereço: @Html.DisplayFor(model => model.Clients.Address)<br>
+                                Zona: @Html.DisplayFor(model => model.Clients.State)<br>
+                               
                             </address>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
-                            <b>Invoice @Html.DisplayFor(model => model.Bill)</b><br>
+                            <b>Invoice @Html.DisplayFor(model => model.Clients.Bill)</b><br>
                             <br>
-                            <b>Nº do Contador:</b> @Html.DisplayFor(model => model.Meter)<br>
-                            <b>Pagar até:</b> @Html.DisplayFor(model => model.PayDate)<br>
-                            <b>Conta para pagamento:</b> BIM: 75801912  || NIB BCI: 000800000056298910180  || E-Mola: 8700231120
+                            <b>Nº do Contador:</b> @Html.DisplayFor(model => model.Clients.Meter)<br>
+                            <b>Pagar até:</b> @Html.DisplayFor(model => model.Clients.PayDate)<br>
+                            <b>Conta para pagamento:</b> BIM: 75801912  || NIB BCI: 000800000056298910180  || E-Mola: 870031120
                         </div>
                         <!-- /.col -->
                     </div>
@@ -68,7 +67,7 @@
 
 
                     <div class="col-6">
-                        <p class="lead">Data Limite de Pagamento @Html.DisplayFor(model => model.PayDate)</p>
+                        <p class="lead">Data Limite de Pagamento @Html.DisplayFor(model => model.Clients.PayDate)</p>
 
                         <div class="table-responsive">
                             <style>
@@ -85,27 +84,65 @@
                                 <tr>
                                     <th rowspan="2" style="vertical-align: middle; ">Leituras:</th>
                                     <th class="subfield">Leitura Inicial:</th>
-                                    <td>@Html.DisplayFor(model => model.M3)m³</td>
+                                    <td>@Html.DisplayFor(model => model.Clients.M3)m³</td>
                                 </tr>
                                 <tr>
                                     <th class="subfield">Leitura Final:</th>
-                                    <td>@Html.DisplayFor(model => model.M4)m³</td>
+                                    <td>@Html.DisplayFor(model => model.Clients.M4)m³</td>
                                 </tr>
                                 <tr>
                                     <th>Subtotal:</th>
-                                    <td>@Html.DisplayFor(model => model.Valor)</td>
+                                    <td>@Html.DisplayFor(model => model.Clients.Valor)</td>
                                 </tr>
                                 <tr>
                                     <th>Multa de atraso (25%):</th>
-                                    <td>@Html.DisplayFor(model => model.Multa)</td>
+                                    <td>@Html.DisplayFor(model => model.Clients.Multa)</td>
                                 </tr>
                                 <tr>
                                     <th>Total:</th>
-                                    <td>@Html.DisplayFor(model => model.Debt)</td>
+                                    <td>@Html.DisplayFor(model => model.Clients.Debt)</td>
                                 </tr>
+                                
+
                             </table>
                         </div>
                     </div>
+
+                    @if (Model.ClientsList != null && Model.ClientsList.Any())
+                    {
+                        <div class="col-md-6">
+                            <h4>Facturas por Pagar</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Factura</th>
+                                        <th>Data da Factura</th>
+                                        <th>Data de Pagamento</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var client in Model.ClientsList)
+                                    {
+                                        <tr>
+                                            <td>@client.Bill</td>
+                                            <td>@client.Created</td>
+                                            <td>@client.PayDate.ToString("yyyy-MM-dd")</td>
+                                            <td>@client.Debt?.ToString("F2")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3"><strong>Total a Pagar:</strong></td>
+                                        <td><strong>@ViewBag.GrandTotal.ToString("F2")</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    }
+
+
                 </div>
 
 
@@ -116,7 +153,7 @@
                                 <i class="fas fa-print"></i> Imprimir Fatura
                             </button>
 
-                        <a asp-action="Upsert" asp-route-id="@Model.Id" class="btn btn-success float-right">
+                        <a asp-action="Upsert" asp-route-id="@Model.Clients.Id" class="btn btn-success float-right">
                             <i class="far fa-credit-card"></i> Fazer Pagamento
                         </a>
                         <button id="download-pdf" class="btn btn-primary float-right" style="margin-right: 5px;">
@@ -134,7 +171,6 @@
             window.print();
         }
 
-
         document.getElementById("download-pdf").addEventListener("click", function () {
             // Select the content to print
             const invoiceContent = document.getElementById("invoice-content");
@@ -145,13 +181,14 @@
                 filename: 'Invoice.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: 'a5', orientation: 'portrait' } // Changed format to 'a5'
             };
 
             // Generate the PDF
             html2pdf().set(options).from(invoiceContent).save();
         });
     </script>
+
 
 
 </section>
